@@ -21,6 +21,11 @@ class AddTasks extends StatelessWidget {
           ),
         ],
       ),
+      body: Form(
+        child: Column(
+          children: [],
+        ),
+      ),
     );
   }
 }

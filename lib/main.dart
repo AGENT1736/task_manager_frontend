@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/pages/add_tasks.dart';
 import 'package:task_manager/pages/home_page.dart';
 
 void main() {
@@ -10,9 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: true,
       home: HomePage(),
+      routes: {
+        'home_page': (context) => HomePage(),
+        'add_tasks': (context) => AddTasks(),
+      },
     );
   }
 }

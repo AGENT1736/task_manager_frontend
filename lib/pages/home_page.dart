@@ -7,6 +7,29 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, String>> data = [
+      {
+        'title': 'Task 1',
+        'subtitle': 'Complete the report',
+        'description': 'we need to complete the reports'
+      },
+      {
+        'title': 'Task 2',
+        'subtitle': 'Review PRs',
+        'description': 'we need to complete these PRs'
+      },
+      {
+        'title': 'Task 3',
+        'subtitle': 'Team meeting at 3 PM',
+        'description': 'we have a team meeting at 3PM'
+      },
+      {
+        'title': 'Task 4',
+        'subtitle': 'Client call at 5 PM',
+        'description': 'we have a client call at 5PM'
+      },
+    ];
+
     return Scaffold(
       backgroundColor: LightThemeColors.backgroundColor,
       appBar: AppBar(
@@ -21,7 +44,9 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, 'add_tasks');
+            },
             icon: Icon(
               Icons.add,
               color: LightThemeColors.primaryColor,
@@ -43,10 +68,18 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             ),
-            ViewTaskTile(
-              title: "Task title",
-              subtitle: "Information about the task",
-              description: "Description about the task",
+            Expanded(
+              child: ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (context, index) {
+                  final item = data[index];
+                  return ViewTaskTile(
+                    title: item['title']!,
+                    subtitle: item['subtitle']!,
+                    description: item['description']!,
+                  );
+                },
+              ),
             ),
           ],
         ),
