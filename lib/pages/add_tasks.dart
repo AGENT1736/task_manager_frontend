@@ -9,11 +9,11 @@ import 'package:task_manager/widgets/description_field.dart';
 class AddTasks extends StatelessWidget {
   const AddTasks({super.key});
 
-  // Function to send task data to the Go backend
+  
   Future<void> sendTaskToBackend(
       String title, String subtitle, String description) async {
     final url = Uri.parse(
-        'http://10.0.2.2:8080/tasks'); // Update with your backend URL if necessary
+        'http://10.0.2.2:8080/tasks'); 
 
     final headers = {
       'Content-Type': 'application/json',
